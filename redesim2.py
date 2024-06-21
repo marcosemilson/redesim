@@ -1,5 +1,6 @@
 import streamlit as st
 import pandas as pd
+import openpyxl 
 import os
 
 # 1. Verificar a existência dos arquivos CSV
