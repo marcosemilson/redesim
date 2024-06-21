@@ -1,0 +1,73 @@
+import streamlit as st
+import pandas as pd
+
+# 1. Read CSV files into Pandas Dataframes
+df_atividades = pd.read_csv('Relatóriodedadosdeatividades.csv', delimiter=';')
+df_empresas = pd.read_csv('Relatóriodedadosdeempresas.csv', delimiter=';')
+df_socios = pd.read_csv('Relatóriodedadosdesócios.csv', delimiter=';')
+
+# 2. Rename columns for consistency
+df_atividades = df_atividades.rename(columns={'Identificador único empresa': 'id_empresa'})
+df_socios = df_socios.rename(columns={'Identificador único empresa': 'id_empresa'})
+df_empresas = df_empresas.rename(columns={'Identificador único': 'id_empresa'})
+
+# 3. Create a dictionary to store company details
+empresas_detalhes = {}
+for id_empresa in df_empresas['id_empresa'].unique():
+    detalhes_empresa = {
+        'Empresa': df_empresas[df_empresas['id_empresa'] == id_empresa],
+        'Atividades': df_atividades[df_atividades['id_empresa'] == id_empresa],
+        'Sócios': df_socios[df_socios['id_empresa'] == id_empresa]
+    }
+    empresas_detalhes[id_empresa] = detalhes_empresa
+
+# 4. Initialize session state for viewed companies
+if 'empresas_visualizadas' not in st.session_state:
+    st.session_state.empresas_visualizadas = []
+
+# 5. Filter companies not yet viewed
+empresas_nao_visualizadas = df_empresas[~df_empresas['id_empresa'].isin(st.session_state.empresas_visualizadas)]['razao_social'].unique()
+
+# 6. Create a Streamlit form to select a company
+st.title('Detalhes de Empresas')
+
+with st.form(key='empresa_form'):
+    selected_empresa = st.selectbox('Selecione uma empresa:', empresas_nao_visualizadas)
+    submit_button = st.form_submit_button(label='Exibir Detalhes')
+
+# 7. Display company details
+if submit_button and selected_empresa:
+    id_empresa = df_empresas[df_empresas['razao_social'] == selected_empresa]['id_empresa'].values[0]
+    detalhes = empresas_detalhes.get(id_empresa)
+
+    if detalhes:
+        for categoria, df_categoria in detalhes.items():
+            st.subheader(categoria)
+
+            if categoria == 'Empresa':
+                # Display company details as a form
+                with st.form(key=f'detalhes_{categoria}'):
+                    for col in df_categoria.columns:
+                        if col != 'id_empresa':  # Exclude id_empresa from the form
+                            st.write(f'**{col}:** {df_categoria[col].iloc[0]}')
+                    # Placeholder for form submit button (not used here)
+                    st.form_submit_button(label='Atualizar')
+            else:
+                # Display activities and partners as tables, excluding repeated columns
+                columns_to_exclude = ['município', 'id_empresa', 'cpfcnpj', 'razao_social', 'inscricao_municipal']
+                st.dataframe(df_categoria.drop(columns=columns_to_exclude, errors='ignore'))
+
+        # 8. Checkbox to mark company as viewed
+        if st.checkbox("Marcar como visualizada", key=id_empresa):
+            st.session_state.empresas_visualizadas.append(id_empresa)
+            st.experimental_rerun()  # Refresh the app to update the selectbox
+
+# 9. Export to Excel button
+if st.button("Exportar para Excel"):
+    with pd.ExcelWriter("dados_empresas_visualizadas.xlsx") as writer:
+        for id_empresa in st.session_state.empresas_visualizadas:
+            company_data = empresas_detalhes.get(id_empresa)
+            for categoria, dados in company_data.items():
+                if categoria != 'Empresa' and dados.shape[0] > 0:  # Check if dataframe is not empty
+                    dados.drop(columns=['id_empresa'], errors='ignore').to_excel(writer, sheet_name=categoria, index=False)
+    st.success("Dados exportados para dados_empresas_visualizadas.xlsx com sucesso!")
