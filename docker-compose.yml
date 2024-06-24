@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  redesim:
+    image: redesim
+    build:
+      context: .
+      dockerfile: ./Dockerfile

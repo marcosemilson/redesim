@@ -1,18 +1,4 @@
 município;id_empresa;cpfcnpj;razao_social;inscricao_municipal;codigoclasse;codigosubclasse;codigosubsubclasse;descricao;Data de inclusão na integração;atividadeprincipal
-755;653940;25957402000100;AGUINALDO FERREIRA GUIMARAES 52205215949;1010004677;25390;1;0;Serviços de usinagem, torneiria e solda;2024-06-02 11:46:25.972067;Sim
-755;653940;25957402000100;AGUINALDO FERREIRA GUIMARAES 52205215949;1010004677;33112;0;0;Manutenção e reparação de tanques, reservatórios metálicos e caldeiras, exceto para veículos;2024-06-02 11:46:25.972067;Não
-755;653940;25957402000100;AGUINALDO FERREIRA GUIMARAES 52205215949;1010004677;33210;0;0;Instalação de máquinas e equipamentos industriais;2024-06-02 11:46:25.972067;Não
-755;654199;12600930000165;DEBORAH CRISTINA DE SOUZA;1010003441;49302;2;0;Transporte rodoviário de carga, exceto produtos perigosos e mudanças, intermunicipal, interestadual e internacional;2024-06-02 11:46:25.972067;Sim
-755;654200;44506663000158;DIEGO DA SILVA SOARES 01546477640;1010008195;25390;1;0;Serviços de usinagem, torneiria e solda;2024-06-02 11:46:25.972067;Sim
-755;654201;2699802000167;PAULO CESAR DA SILVA - PAULAO AUTO PECAS LTDA;1010003352;45307;1;0;Comércio por atacado de peças e acessórios novos para veículos automotores;2024-06-02 11:46:25.972067;Sim
-755;654201;2699802000167;PAULO CESAR DA SILVA - PAULAO AUTO PECAS LTDA;1010003352;52290;2;0;Serviços de reboque de veículos;2024-06-02 11:46:25.972067;Não
-755;654201;2699802000167;PAULO CESAR DA SILVA - PAULAO AUTO PECAS LTDA;1010003352;45111;1;0;Comércio a varejo de automóveis, camionetas e utilitários novos;2024-06-02 11:46:25.972067;Não
-755;654201;2699802000167;PAULO CESAR DA SILVA - PAULAO AUTO PECAS LTDA;1010003352;45111;2;0;Comércio a varejo de automóveis, camionetas e utilitários usados;2024-06-02 11:46:25.972067;Não
-755;654201;2699802000167;PAULO CESAR DA SILVA - PAULAO AUTO PECAS LTDA;1010003352;45200;1;0;Serviços de manutenção e reparação mecânica de veículos automotores;2024-06-02 11:46:25.972067;Não
-755;654201;2699802000167;PAULO CESAR DA SILVA - PAULAO AUTO PECAS LTDA;1010003352;45200;2;0;Serviços de lanternagem ou funilaria e pintura de veículos automotores;2024-06-02 11:46:25.972067;Não
-755;654201;2699802000167;PAULO CESAR DA SILVA - PAULAO AUTO PECAS LTDA;1010003352;45200;3;0;Serviços de manutenção e reparação elétrica de veículos automotores;2024-06-02 11:46:25.972067;Não
-755;654201;2699802000167;PAULO CESAR DA SILVA - PAULAO AUTO PECAS LTDA;1010003352;45307;3;0;Comércio a varejo de peças e acessórios novos para veículos automotores;2024-06-02 11:46:25.972067;Não
-755;654201;2699802000167;PAULO CESAR DA SILVA - PAULAO AUTO PECAS LTDA;1010003352;45307;4;0;Comércio a varejo de peças e acessórios usados para veículos automotores;2024-06-02 11:46:25.972067;Não
 755;654202;23473851000157;SIMONE ALESSANDRA SILVA CALDEIRA - SERVICOS;1010004625;25390;1;0;Serviços de usinagem, torneiria e solda;2024-06-02 11:46:25.972067;Sim
 755;654202;23473851000157;SIMONE ALESSANDRA SILVA CALDEIRA - SERVICOS;1010004625;25390;2;0;Serviços de tratamento e revestimento em metais;2024-06-02 11:46:25.972067;Não
 755;654202;23473851000157;SIMONE ALESSANDRA SILVA CALDEIRA - SERVICOS;1010004625;43223;1;0;Instalações hidráulicas, sanitárias e de gás;2024-06-02 11:46:25.972067;Não
