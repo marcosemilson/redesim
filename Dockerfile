@@ -9,4 +9,4 @@ COPY . .
 
 EXPOSE 8501
 
-CMD ["streamlit", "run", "redesim2.py", "--server.port=8501"]
+CMD ["streamlit", "run", "redesim.py", "--server.port=8501"]

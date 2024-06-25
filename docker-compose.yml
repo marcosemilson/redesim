@@ -6,3 +6,8 @@ services:
     build:
       context: .
       dockerfile: ./Dockerfile
+    ports:
+      - 8501:8501 
+    environment:
+      STREAMLIT_SERVER_ADDRESS: 0.0.0.0
+    command: streamlit run redesim.py --server.port=8501

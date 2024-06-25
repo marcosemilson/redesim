@@ -2,7 +2,7 @@
 
 
 a = Analysis(
-    ['redesim2.py'],
+    ['redesim.py'],
     pathex=[],
     binaries=[],
     datas=[],
@@ -22,7 +22,7 @@ exe = EXE(
     a.binaries,
     a.datas,
     [],
-    name='redesim2',
+    name='redesim',
     debug=False,
     bootloader_ignore_signals=False,
     strip=False,
